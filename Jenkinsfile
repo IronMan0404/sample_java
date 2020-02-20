@@ -3,7 +3,6 @@ pipeline {
 
     stages {
         stage ('Compile Stage') {
-
             steps {
                  bat 'mvn clean compile'
             }
@@ -16,14 +15,14 @@ pipeline {
             }
         }
         stage('JacocoPublisher') {
-        // junit '*/build/test-results/*.xml'
-            step([$class: 'JacocoPublisher', 
-                execPattern: 'target/*.exec',
-                classPattern: 'target/classes',
-                sourcePattern: 'src/main/java',
-                exclusionPattern: 'src/test*'
+            steps {
+                step([$class: 'JacocoPublisher', 
+                    execPattern: 'target/*.exec',
+                    classPattern: 'target/classes',
+                    sourcePattern: 'src/main/java',
+                    exclusionPattern: 'src/test*'
 ])
-     
+            }
 }
 
 
