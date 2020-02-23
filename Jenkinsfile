@@ -26,10 +26,10 @@ pipeline {
 }
 
 
-        stage ('Deployment Stage') {
-            steps {
+        //stage ('Deployment Stage') {
+         //   steps {
                  //bat 'mvn deploy'
-            }
-        }
+           // }
+        //}
     }
 }
