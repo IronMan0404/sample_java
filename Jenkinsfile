@@ -26,11 +26,11 @@ pipeline {
 }
 
 
-        stage ('Deployment Stage') {
-            steps {
-                 bat 'mvn deploy'
-            }
-        }
+//        stage ('Deployment Stage') {
+//            steps {
+//                 bat 'mvn deploy'
+//            }
+//        }
         stage('Results') {
             junit '**/target/TEST-*.xml'
     //   archiveArtifacts 'target/*.jar'
