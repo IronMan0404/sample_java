@@ -32,7 +32,10 @@ pipeline {
 //            }
 //        }
         stage('Results') {
-            junit '**/target/TEST-*.xml'
+            steps {
+                 junit '**/target/TEST-*.xml'
+            }
+            
     //   archiveArtifacts 'target/*.jar'
    }
 //        stage('SonarQube analysis') {
