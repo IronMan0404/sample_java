@@ -26,11 +26,13 @@ pipeline {
 }
 
 
-//        stage ('Deployment Stage') {
-//            steps {
-//                 bat 'mvn deploy'
-//            }
-//        }
+  stage('SonarQube analysis') {
+    withSonarQubeEnv(credentialsId: 'ab15351275a8f4b7726a5d6dee8b8315d42cc679', installationName: 'My SonarQube Server') { // You can override the credential to be used
+        steps {
+                 bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+            }
+    }
+  }
         stage('Results') {
             steps {
                  junit '**/target/TEST-*.xml'
