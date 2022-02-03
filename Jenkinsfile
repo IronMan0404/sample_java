@@ -26,13 +26,13 @@ pipeline {
 }
 
 
-        stage('SonarQube analysis') {
-        steps {
-                withSonarQubeEnv(credentialsId: 'ab15351275a8f4b7726a5d6dee8b8315d42cc679', installationName: 'My SonarQube Server')
-                 bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+//         stage('SonarQube analysis') {
+//         steps {
+//                 withSonarQubeEnv(credentialsId: 'ab15351275a8f4b7726a5d6dee8b8315d42cc679', installationName: 'My SonarQube Server')
+//                  bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
             
-    }
-  }
+//     }
+//   }
         stage('Results') {
             steps {
                  junit '**/target/TEST-*.xml'
